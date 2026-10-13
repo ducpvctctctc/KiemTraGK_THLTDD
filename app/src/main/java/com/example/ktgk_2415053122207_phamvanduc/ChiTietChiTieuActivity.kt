@@ -8,7 +8,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.app.Activity
 import androidx.activity.result.contract.ActivityResultContracts
 class ChiTietChiTieuActivity : AppCompatActivity() {
-
+    private var tenHienTai_207 = ""
+    private var tienHienTai_207 = 0.0
+    private var ghiChuHienTai_207 = ""
     private val moChinhSua_207 =
         registerForActivityResult(
             ActivityResultContracts.StartActivityForResult()
@@ -26,6 +28,10 @@ class ChiTietChiTieuActivity : AppCompatActivity() {
 
                     val ghiChuMoi_207 =
                         duLieu_207.getStringExtra("ghiChu_207") ?: ""
+
+                    tenHienTai_207 = tenMoi_207
+                    tienHienTai_207 = tienMoi_207
+                    ghiChuHienTai_207 = ghiChuMoi_207
 
                     findViewById<TextView>(R.id.tvTenKhoanChi_207).text =
                         "Tên khoản chi: $tenMoi_207"
@@ -70,14 +76,14 @@ class ChiTietChiTieuActivity : AppCompatActivity() {
                 ChinhSuaChiTieuActivity::class.java
             )
 
-            intent_207.putExtra("tenKhoanChi_207", tenKhoanChi_207)
-            intent_207.putExtra("soTien_207", soTien_207)
-            intent_207.putExtra("ghiChu_207", ghiChu_207)
+            intent_207.putExtra("tenKhoanChi_207", tenHienTai_207)
+            intent_207.putExtra("soTien_207", tienHienTai_207)
+            intent_207.putExtra("ghiChu_207", ghiChuHienTai_207)
 
             moChinhSua_207.launch(intent_207)
         }
 
-        if (tenKhoanChi_207.isBlank()) {
+        if (tenHienTai_207.isBlank()) {
             Toast.makeText(
                 this,
                 "Lỗi: Thiếu tên khoản chi",
@@ -89,10 +95,10 @@ class ChiTietChiTieuActivity : AppCompatActivity() {
 
         } else {
             tvTenKhoanChi_207.text =
-                "Tên khoản chi: $tenKhoanChi_207"
+                "Tên khoản chi: $tenHienTai_207"
         }
 
-        if (!soTien_207.isFinite() || soTien_207 <= 0) {
+        if (!tienHienTai_207.isFinite() || tienHienTai_207 <= 0) {
             Toast.makeText(
                 this,
                 "Lỗi: Số tiền không hợp lệ",
@@ -104,7 +110,7 @@ class ChiTietChiTieuActivity : AppCompatActivity() {
 
         } else {
             tvSoTien_207.text =
-                "Số tiền: $soTien_207 VNĐ"
+                "Số tiền: $tienHienTai_207 VNĐ"
         }
 
         // Nhan du lieu tu Intent
@@ -116,6 +122,10 @@ class ChiTietChiTieuActivity : AppCompatActivity() {
 
         val ghiChu_207 =
             intent.getStringExtra("ghiChu_207") ?: ""
+
+        tenHienTai_207 = tenKhoanChi_207
+        tienHienTai_207 = soTien_207
+        ghiChuHienTai_207 = ghiChu_207
 
         // Hien thi du lieu
         tvTenKhoanChi_207.text =
