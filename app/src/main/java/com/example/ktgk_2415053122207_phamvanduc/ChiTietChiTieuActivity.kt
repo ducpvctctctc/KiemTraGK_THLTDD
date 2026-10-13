@@ -1,5 +1,5 @@
 package com.example.ktgk_2415053122207_phamvanduc
-
+import android.content.Intent
 import android.widget.Toast
 import android.os.Bundle
 import android.widget.Button
@@ -28,6 +28,22 @@ class ChiTietChiTieuActivity : AppCompatActivity() {
 
         val btnQuayLai_207 =
             findViewById<Button>(R.id.btnQuayLai_207)
+
+        val btnChinhSua_207 =
+            findViewById<Button>(R.id.btnChinhSua_207)
+
+        btnChinhSua_207.setOnClickListener {
+            val intent_207 = Intent(
+                this,
+                ChinhSuaChiTieuActivity::class.java
+            )
+
+            intent_207.putExtra("tenKhoanChi_207", tenKhoanChi_207)
+            intent_207.putExtra("soTien_207", soTien_207)
+            intent_207.putExtra("ghiChu_207", ghiChu_207)
+
+            startActivity(intent_207)
+        }
 
         if (tenKhoanChi_207.isBlank()) {
             Toast.makeText(

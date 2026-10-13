@@ -26,7 +26,12 @@
         android:layout_height="wrap_content"
         android:text="Ghi chú:"
         android:textSize="18sp" />
-
+    <Button
+        android:id="@+id/btnChinhSua_207"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Chỉnh sửa khoản chi"
+        android:layout_marginBottom="12dp"/>
     <Button
         android:id="@+id/btnQuayLai_207"
         android:layout_width="match_parent"
