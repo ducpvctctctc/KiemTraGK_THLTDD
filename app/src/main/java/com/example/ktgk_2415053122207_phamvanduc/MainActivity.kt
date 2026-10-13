@@ -66,13 +66,31 @@ class MainActivity : AppCompatActivity() {
         }
 
         // Xu ly nut Xem chi tiet
+
         btnXemChiTiet_207.setOnClickListener {
 
+            // Lay du lieu tu giao dien
+            val tenKhoanChi_207 =
+                edtTenKhoanChi_207.text.toString().trim()
+
+            val soTien_207 =
+                edtSoTien_207.text.toString().toDoubleOrNull()
+
+            val ghiChu_207 =
+                edtGhiChu_207.text.toString().trim()
+
+            // Tao Intent chuyen sang man hinh chi tiet
             val intent_207 = Intent(
                 this,
                 ChiTietChiTieuActivity::class.java
             )
 
+            // Truyen du lieu
+            intent_207.putExtra("tenKhoanChi_207", tenKhoanChi_207)
+            intent_207.putExtra("soTien_207", soTien_207 ?: 0.0)
+            intent_207.putExtra("ghiChu_207", ghiChu_207)
+
+            // Mo man hinh chi tiet
             startActivity(intent_207)
         }
     }
