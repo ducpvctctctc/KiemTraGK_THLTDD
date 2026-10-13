@@ -26,6 +26,15 @@
         android:layout_height="wrap_content"
         android:text="Ghi chú:"
         android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tvTrangThai_207"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Trạng thái: Chưa thanh toán"
+        android:textSize="18sp"
+        android:layout_marginBottom="16dp"/>
+
     <Button
         android:id="@+id/btnChinhSua_207"
         android:layout_width="match_parent"
