@@ -5,8 +5,40 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-
+import android.app.Activity
+import androidx.activity.result.contract.ActivityResultContracts
 class ChiTietChiTieuActivity : AppCompatActivity() {
+
+    private val moChinhSua_207 =
+        registerForActivityResult(
+            ActivityResultContracts.StartActivityForResult()
+        ) { ketQua_207 ->
+
+            if (ketQua_207.resultCode == Activity.RESULT_OK) {
+                val duLieu_207 = ketQua_207.data
+
+                if (duLieu_207 != null) {
+                    val tenMoi_207 =
+                        duLieu_207.getStringExtra("tenKhoanChi_207") ?: ""
+
+                    val tienMoi_207 =
+                        duLieu_207.getDoubleExtra("soTien_207", 0.0)
+
+                    val ghiChuMoi_207 =
+                        duLieu_207.getStringExtra("ghiChu_207") ?: ""
+
+                    findViewById<TextView>(R.id.tvTenKhoanChi_207).text =
+                        "Tên khoản chi: $tenMoi_207"
+
+                    findViewById<TextView>(R.id.tvSoTien_207).text =
+                        "Số tiền: $tienMoi_207 VNĐ"
+
+                    findViewById<TextView>(R.id.tvGhiChu_207).text =
+                        "Ghi chú: $ghiChuMoi_207"
+                }
+            }
+        }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,7 +74,7 @@ class ChiTietChiTieuActivity : AppCompatActivity() {
             intent_207.putExtra("soTien_207", soTien_207)
             intent_207.putExtra("ghiChu_207", ghiChu_207)
 
-            startActivity(intent_207)
+            moChinhSua_207.launch(intent_207)
         }
 
         if (tenKhoanChi_207.isBlank()) {
