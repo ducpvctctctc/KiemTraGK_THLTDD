@@ -1,6 +1,6 @@
 package com.example.ktgk_2415053122207_phamvanduc
 
-
+import android.widget.Toast
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
@@ -28,6 +28,36 @@ class ChiTietChiTieuActivity : AppCompatActivity() {
 
         val btnQuayLai_207 =
             findViewById<Button>(R.id.btnQuayLai_207)
+
+        if (tenKhoanChi_207.isBlank()) {
+            Toast.makeText(
+                this,
+                "Lỗi: Thiếu tên khoản chi",
+                Toast.LENGTH_LONG
+            ).show()
+
+            tvTenKhoanChi_207.text =
+                "Tên khoản chi: Không hợp lệ"
+
+        } else {
+            tvTenKhoanChi_207.text =
+                "Tên khoản chi: $tenKhoanChi_207"
+        }
+
+        if (!soTien_207.isFinite() || soTien_207 <= 0) {
+            Toast.makeText(
+                this,
+                "Lỗi: Số tiền không hợp lệ",
+                Toast.LENGTH_LONG
+            ).show()
+
+            tvSoTien_207.text =
+                "Số tiền: Không hợp lệ"
+
+        } else {
+            tvSoTien_207.text =
+                "Số tiền: $soTien_207 VNĐ"
+        }
 
         // Nhan du lieu tu Intent
         val tenKhoanChi_207 =
