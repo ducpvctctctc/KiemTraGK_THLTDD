@@ -70,6 +70,37 @@ class ChiTietChiTieuActivity : AppCompatActivity() {
         val btnChinhSua_207 =
             findViewById<Button>(R.id.btnChinhSua_207)
 
+        // Nhan du lieu tu Intent
+        val tenKhoanChi_207 =
+            intent.getStringExtra("tenKhoanChi_207") ?: ""
+
+        val soTien_207 =
+            intent.getDoubleExtra("soTien_207", 0.0)
+
+        val ghiChu_207 =
+            intent.getStringExtra("ghiChu_207") ?: ""
+
+        val khoanChi_207 = KhoanChi(
+            maKhoanChi_207 = "KC20701",
+            tenKhoanChi_207 = tenKhoanChi_207,
+            soTien_207 = soTien_207,
+            ghiChu_207 = ghiChu_207,
+            daThanhToan_207 = false
+        )
+
+        val tvTrangThai_207 =
+            findViewById<TextView>(R.id.tvTrangThai_207)
+
+        tvTrangThai_207.text =
+            if (khoanChi_207.daThanhToan_207)
+                "Trạng thái: Đã thanh toán"
+            else
+                "Trạng thái: Chưa thanh toán"
+
+        tenHienTai_207 = tenKhoanChi_207
+        tienHienTai_207 = soTien_207
+        ghiChuHienTai_207 = ghiChu_207
+
         btnChinhSua_207.setOnClickListener {
             val intent_207 = Intent(
                 this,
@@ -95,7 +126,7 @@ class ChiTietChiTieuActivity : AppCompatActivity() {
 
         } else {
             tvTenKhoanChi_207.text =
-                "Tên khoản chi: $tenHienTai_207"
+                "Tên khoản chi: ${khoanChi_207.tenKhoanChi_207}"
         }
 
         if (!tienHienTai_207.isFinite() || tienHienTai_207 <= 0) {
@@ -110,32 +141,12 @@ class ChiTietChiTieuActivity : AppCompatActivity() {
 
         } else {
             tvSoTien_207.text =
-                "Số tiền: $tienHienTai_207 VNĐ"
+                "Số tiền: ${khoanChi_207.soTien_207} VNĐ"
         }
 
-        // Nhan du lieu tu Intent
-        val tenKhoanChi_207 =
-            intent.getStringExtra("tenKhoanChi_207") ?: ""
-
-        val soTien_207 =
-            intent.getDoubleExtra("soTien_207", 0.0)
-
-        val ghiChu_207 =
-            intent.getStringExtra("ghiChu_207") ?: ""
-
-        tenHienTai_207 = tenKhoanChi_207
-        tienHienTai_207 = soTien_207
-        ghiChuHienTai_207 = ghiChu_207
-
         // Hien thi du lieu
-        tvTenKhoanChi_207.text =
-            "Tên khoản chi: $tenKhoanChi_207"
-
-        tvSoTien_207.text =
-            "Số tiền: $soTien_207 VNĐ"
-
         tvGhiChu_207.text =
-            "Ghi chú: $ghiChu_207"
+            "Ghi chú: ${khoanChi_207.ghiChu_207}"
 
         // Quay lai MainActivity
         btnQuayLai_207.setOnClickListener {
