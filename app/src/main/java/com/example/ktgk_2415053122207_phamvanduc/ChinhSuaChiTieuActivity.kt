@@ -25,6 +25,7 @@ class ChinhSuaChiTieuActivity : AppCompatActivity() {
         val tenKhoanChi_207 = intent.getStringExtra("tenKhoanChi_207") ?: ""
         val soTien_207 = intent.getDoubleExtra("soTien_207", 0.0)
         val ghiChu_207 = intent.getStringExtra("ghiChu_207") ?: ""
+        val daThanhToan_207 = intent.getBooleanExtra("daThanhToan_207", false)
 
         edtSuaTen_207.setText(tenKhoanChi_207)
         edtSuaTien_207.setText(if (soTien_207 > 0) soTien_207.toString() else "")
@@ -55,6 +56,7 @@ class ChinhSuaChiTieuActivity : AppCompatActivity() {
                 putExtra("tenKhoanChi_207", tenMoi_207)
                 putExtra("soTien_207", tienMoi_207)
                 putExtra("ghiChu_207", ghiChuMoi_207)
+                putExtra("daThanhToan_207", daThanhToan_207)
             }
 
             setResult(Activity.RESULT_OK, ketQua_207)
