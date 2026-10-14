@@ -29,14 +29,26 @@ class ChiTietChiTieuActivity : AppCompatActivity() {
                     tienHienTai_207 = tienMoi_207
                     ghiChuHienTai_207 = ghiChuMoi_207
 
+                    val khoanChiMoi_207 = KhoanChi(
+                        maKhoanChi_207 = "KC20701",
+                        tenKhoanChi_207 = tenMoi_207,
+                        soTien_207 = tienMoi_207,
+                        ghiChu_207 = ghiChuMoi_207,
+                        daThanhToan_207 = false
+                    )
+
                     findViewById<TextView>(R.id.tvTenKhoanChi_207).text =
-                        "Tên khoản chi: $tenMoi_207"
+                        "Tên khoản chi: ${khoanChiMoi_207.tenKhoanChi_207}"
 
                     findViewById<TextView>(R.id.tvSoTien_207).text =
-                        "Số tiền: $tienMoi_207 VNĐ"
+                        "Số tiền: ${khoanChiMoi_207.soTien_207} VNĐ"
 
                     findViewById<TextView>(R.id.tvGhiChu_207).text =
-                        "Ghi chú: $ghiChuMoi_207"
+                        "Ghi chú: ${khoanChiMoi_207.ghiChu_207}"
+
+                    findViewById<TextView>(R.id.tvTrangThai_207).text =
+                        if (khoanChiMoi_207.daThanhToan_207) "Trạng thái: Đã thanh toán"
+                        else "Trạng thái: Chưa thanh toán"
                 }
             }
         }
