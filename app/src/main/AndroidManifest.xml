@@ -10,25 +10,22 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.KTGK_2415053122207_PhamVanDuc">
+        android:theme="@style/Theme.KTGK_2415053122207_PhamVanDuc"
+        tools:targetApi="31">
+
         <activity
             android:name=".MainActivity"
-            android:exported="true"
-            android:windowSoftInputMode="adjustResize">
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".ChiTietChiTieuActivity"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
-        <activity
-            android:name=".ChinhSuaChiTieuActivity"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
+
+        <activity android:name=".ChiTietChiTieuActivity" />
+        <activity android:name=".ChinhSuaChiTieuActivity" />
+
     </application>
 
 </manifest>

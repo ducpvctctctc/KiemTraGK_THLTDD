@@ -1,6 +1,5 @@
 package com.example.ktgk_2415053122207_phamvanduc
 
-
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -44,11 +43,20 @@ class MainActivity : AppCompatActivity() {
                 edtTenKhoanChi_207.text.toString().trim()
 
             val soTien_207 =
-                edtSoTien_207.text.toString().toDoubleOrNull() ?: 0.0
+                edtSoTien_207.text.toString().toDoubleOrNull()
 
-            if (tenKhoanChi_207.isEmpty()) {
+            if (tenKhoanChi_207.isBlank()) {
                 edtTenKhoanChi_207.error =
-                    "Vui lòng nhập tên khoản chi"
+                    "Tên khoản chi không được để trống"
+                edtTenKhoanChi_207.requestFocus()
+
+            } else if (soTien_207 == null ||
+                !soTien_207.isFinite() || soTien_207 <= 0) {
+
+                edtSoTien_207.error =
+                    "Số tiền phải là số hợp lệ và lớn hơn 0"
+                edtSoTien_207.requestFocus()
+
             } else {
                 val khoanChi_207 = KhoanChi(
                     maKhoanChi_207 = "KC20701",
@@ -64,18 +72,13 @@ class MainActivity : AppCompatActivity() {
                         "Đã thêm: ${khoanChi_207.tenKhoanChi_207}",
                         Toast.LENGTH_SHORT
                     ).show()
-                } else {
-                    edtSoTien_207.error =
-                        "Số tiền phải lớn hơn 0"
                 }
             }
         }
 
         // Xu ly nut Xem chi tiet
-
         btnXemChiTiet_207.setOnClickListener {
 
-            // Lay du lieu tu giao dien
             val tenKhoanChi_207 =
                 edtTenKhoanChi_207.text.toString().trim()
 
@@ -85,18 +88,29 @@ class MainActivity : AppCompatActivity() {
             val ghiChu_207 =
                 edtGhiChu_207.text.toString().trim()
 
-            // Tao Intent chuyen sang man hinh chi tiet
+            if (tenKhoanChi_207.isBlank()) {
+                edtTenKhoanChi_207.error =
+                    "Tên khoản chi không được để trống"
+                edtTenKhoanChi_207.requestFocus()
+                return@setOnClickListener
+            }
+
+            if (soTien_207 == null || !soTien_207.isFinite() || soTien_207 <= 0) {
+                edtSoTien_207.error =
+                    "Số tiền phải là số hợp lệ và lớn hơn 0"
+                edtSoTien_207.requestFocus()
+                return@setOnClickListener
+            }
+
             val intent_207 = Intent(
                 this,
                 ChiTietChiTieuActivity::class.java
             )
 
-            // Truyen du lieu
             intent_207.putExtra("tenKhoanChi_207", tenKhoanChi_207)
-            intent_207.putExtra("soTien_207", soTien_207 ?: 0.0)
+            intent_207.putExtra("soTien_207", soTien_207)
             intent_207.putExtra("ghiChu_207", ghiChu_207)
 
-            // Mo man hinh chi tiet
             startActivity(intent_207)
         }
     }

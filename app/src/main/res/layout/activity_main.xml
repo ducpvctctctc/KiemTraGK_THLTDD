@@ -1,76 +1,39 @@
-
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:orientation="vertical"
+    android:padding="24dp">
 
-    <LinearLayout
+    <EditText
+        android:id="@+id/edtTenKhoanChi_207"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="24dp">
+        android:hint="Tên khoản chi" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="QUẢN LÝ CHI TIÊU CÁ NHÂN"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="24dp"/>
+    <EditText
+        android:id="@+id/edtSoTien_207"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Số tiền"
+        android:inputType="numberDecimal" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Tên khoản chi"/>
+    <EditText
+        android:id="@+id/edtGhiChu_207"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ghi chú" />
 
-        <EditText
-            android:id="@+id/edtTenKhoanChi_207"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Nhập tên khoản chi"
-            android:inputType="textCapSentences"/>
+    <Button
+        android:id="@+id/btnThemKhoanChi_207"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Thêm khoản chi" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Số tiền"/>
+    <Button
+        android:id="@+id/btnXemChiTiet_207"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Xem chi tiết khoản chi" />
 
-        <EditText
-            android:id="@+id/edtSoTien_207"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Nhập số tiền"
-            android:inputType="numberDecimal"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Ghi chú"/>
-
-        <EditText
-            android:id="@+id/edtGhiChu_207"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Nhập ghi chú"
-            android:inputType="textMultiLine"
-            android:minLines="2"/>
-
-        <Button
-            android:id="@+id/btnThemKhoanChi_207"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="Thêm khoản chi"/>
-
-        <Button
-            android:id="@+id/btnXemChiTiet_207"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Xem chi tiết khoản chi"/>
-
-    </LinearLayout>
-</ScrollView>
+</LinearLayout>
