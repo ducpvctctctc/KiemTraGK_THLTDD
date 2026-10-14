@@ -43,12 +43,8 @@ class MainActivity : AppCompatActivity() {
                 edtTenKhoanChi_207.text.toString().trim()
 
             val soTien_207 =
-                edtSoTien_207.text.toString().toDoubleOrNull() ?: 0.0
+                edtSoTien_207.text.toString().toDoubleOrNull()
 
-            if (tenKhoanChi_207.isEmpty()) {
-                edtTenKhoanChi_207.error =
-                    "Vui lòng nhập tên khoản chi"
-            }
             if (tenKhoanChi_207.isBlank()) {
                 edtTenKhoanChi_207.error =
                     "Tên khoản chi không được để trống"
@@ -73,7 +69,7 @@ class MainActivity : AppCompatActivity() {
                 if (khoanChi_207.laSoTienHopLe_207()) {
                     Toast.makeText(
                         this,
-                        "Thêm khoản chi thành công",
+                        "Đã thêm: ${khoanChi_207.tenKhoanChi_207}",
                         Toast.LENGTH_SHORT
                     ).show()
                 }
@@ -92,15 +88,17 @@ class MainActivity : AppCompatActivity() {
             val ghiChu_207 =
                 edtGhiChu_207.text.toString().trim()
 
-            if (tenKhoanChi_207.isEmpty()) {
+            if (tenKhoanChi_207.isBlank()) {
                 edtTenKhoanChi_207.error =
-                    "Vui lòng nhập tên khoản chi"
+                    "Tên khoản chi không được để trống"
+                edtTenKhoanChi_207.requestFocus()
                 return@setOnClickListener
             }
 
             if (soTien_207 == null || !soTien_207.isFinite() || soTien_207 <= 0) {
                 edtSoTien_207.error =
-                    "Số tiền phải lớn hơn 0"
+                    "Số tiền phải là số hợp lệ và lớn hơn 0"
+                edtSoTien_207.requestFocus()
                 return@setOnClickListener
             }
 
